@@ -33,7 +33,7 @@
                 // Listar todos os contatos
 
                 let exibirContatos = contatos.reduce(function(acumulador, contato){
-                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    return acumulador += `Nome: ${contato[0]}, Email: ${contato[1]}, Telefone: ${contato[2]}\n`
                     }, '');
                 alert(exibirContatos);
                 break
@@ -66,7 +66,7 @@
                 contatos = contatos.concat(novoContato);
 
                 let exibirContatos = contatos.reduce(function(acumulador, contato){
-                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    return acumulador += `Nome: ${contato[0]}, Email: ${contato[1]}, Telefone: ${contato[2]}\n`
                     }, '');
                 alert(exibirContatos);
 
@@ -83,7 +83,7 @@
                 contatos = contatos.filter(contato => contato [0] !== remover);
 
                 let exibirContatos = contatos.reduce(function(acumulador, contato){
-                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    return acumulador += `Nome: ${contato[0]}, Email: ${contato[1]}, Telefone: ${contato[2]}\n`
                 }, '');
                 alert(exibirContatos)
             }
@@ -99,7 +99,7 @@
             contatos = contatos.filter(contato => contato [0] === buscarPeloNome);
 
             let exibirContatos = contatos.reduce(function(acumulador, contato){
-                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    return acumulador += `Nome: ${contato[0]}, Email: ${contato[1]}, Telefone: ${contato[2]}\n`
                 }, '');
                 alert(exibirContatos);
                 break
