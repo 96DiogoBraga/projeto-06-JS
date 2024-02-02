@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 6</title>
+    <script>
+            // [nome, email, telefone]
+
+        let emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/    
+        let telefoneRegex = /(?:^\([0]?[1-9]{2}\)|^[0]?[1-9]{2}[\.-\s]?)[9]?[1-9]\d{3}[\.-\s]?\d{4}$/
+        let contatos = [
+
+            [ "João", "joao@gmail.com", "11998774533"],
+
+            [ "Maria", "maria@gmail.com", "11933227566"],
+
+            [ "Pedro", "pedro@hotmail.com", "11987654567"],
+
+        ];
+
+
+        let menu = "1 - Exibir todos os contatos\n2 - Cadastrar um novo contato\n3 - Remover contato pelo nome\n4 - Buscar contato pelo nome"
+
+
+        let opcao = prompt(menu);
+
+
+        switch(opcao) {
+
+            case '1': { 
+
+                // Listar todos os contatos
+
+                let exibirContatos = contatos.reduce(function(acumulador, contato){
+                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    }, '');
+                alert(exibirContatos);
+                break
+            }
+
+            
+
+            case '2': {
+
+                // Cadastrar um novo contato, informando corretamente o nome, email e número de telefone
+
+                let nome = prompt('Por favor coloque o nome do contato que deseja adicionar');
+                let email = prompt('Por favor coloque o email do contato que deseja adicionar');
+                if(emailRegex.test(email)){
+
+                } else{
+                    alert('Email inválido')
+                    break
+                }
+                let numero = prompt('Por favor coloque o número do contato que deseja adicionar. Celular (xx)9xxxx-xxxx ou Fixo (xx)3xxx-xxxx');
+                if(telefoneRegex.test(numero)){
+
+                } else{
+                    alert('Número de telefone inválido. Coloque no formato Celular (xx)9xxxx-xxxx ou Fixo (xx)3xxx-xxxx.')
+                    
+                };
+
+                let novoContato = [[nome, email, numero]];
+
+                contatos = contatos.concat(novoContato);
+
+                let exibirContatos = contatos.reduce(function(acumulador, contato){
+                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                    }, '');
+                alert(exibirContatos);
+
+            }
+
+            
+
+            case '3': {
+
+                // Remover um contato pelo nome
+
+                let remover = prompt('Digite o nome do contato que deseja remover');
+                
+                contatos = contatos.filter(contato => contato [0] !== remover);
+
+                let exibirContatos = contatos.reduce(function(acumulador, contato){
+                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                }, '');
+                alert(exibirContatos)
+            }
+
+            
+
+            case '4': {
+
+            // Buscar contato pelo nome
+
+            let buscarPeloNome = prompt('Digite o nome do contato que deseja buscar');
+
+            contatos = contatos.filter(contato => contato [0] === buscarPeloNome);
+
+            let exibirContatos = contatos.reduce(function(acumulador, contato){
+                    return acumulador += `Nome: ${contato[0]}, email: ${contato[1]}, telefone: ${contato[2]}\n`
+                }, '');
+                alert(exibirContatos);
+                break
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Gerenciamento de contatos</h1>
+    
+</body>
+</html>
